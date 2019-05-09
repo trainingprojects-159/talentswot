@@ -16,8 +16,14 @@ import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
 
+import com.mphasis.talentswot.entities.Admin;
 import com.mphasis.talentswot.entities.Candidate;
+import com.mphasis.talentswot.entities.FinalStatus;
+import com.mphasis.talentswot.entities.HR;
+import com.mphasis.talentswot.entities.HRInterview;
 import com.mphasis.talentswot.entities.Skills;
+import com.mphasis.talentswot.entities.Technical;
+import com.mphasis.talentswot.entities.TechnicalInterview;
 
 
 
@@ -65,9 +71,12 @@ public class AppConfig {
 		sessionFactory.setPackagesToScan("com.mphasis.talentswot.entities");
 		sessionFactory.setAnnotatedClasses(Skills.class);
 		sessionFactory.setAnnotatedClasses(Candidate.class);
-//		sessionFactory.setAnnotatedClasses(Product.class);
-//		sessionFactory.setAnnotatedClasses(Employee1.class);
-//		sessionFactory.setAnnotatedClasses(Department1.class);
+		sessionFactory.setAnnotatedClasses(Admin.class);
+		sessionFactory.setAnnotatedClasses(FinalStatus.class);
+		sessionFactory.setAnnotatedClasses(HR.class);
+		sessionFactory.setAnnotatedClasses(HRInterview.class);
+		sessionFactory.setAnnotatedClasses(Technical.class);
+		sessionFactory.setAnnotatedClasses(TechnicalInterview.class);
 	Properties properties = new Properties();
 		properties.put("hibernate.dialect", "org.hibernate.dialect.OracleDialect");
 		properties.put("hibernate.hbm2ddl.auto", "update");

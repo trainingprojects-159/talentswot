@@ -8,6 +8,7 @@ import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 
@@ -22,10 +23,12 @@ public class TechnicalInterview {
 	private String tech_status;
 	private int rating;
 	@OneToOne
+	@JoinColumn(name="tech_Id")
 	private Technical tech_id;
 	@OneToMany(mappedBy="tech_i_id", fetch= FetchType.LAZY, cascade= CascadeType.ALL)
 	private List<Candidate> c_id;
 	@OneToOne
+	@JoinColumn(name="Hr_Int_Id")
 	private HRInterview hr_i_id;
 	
 	

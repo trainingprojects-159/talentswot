@@ -6,6 +6,7 @@ import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 
@@ -22,6 +23,7 @@ public class Admin {
 	@OneToMany(mappedBy="a_id", fetch= FetchType.LAZY, cascade= CascadeType.ALL)
 	private List<HR> hr_id;
 	@OneToOne
+	@JoinColumn(name="Status_Id")
 	private FinalStatus s_id;
 	
 	public FinalStatus getS_id() {

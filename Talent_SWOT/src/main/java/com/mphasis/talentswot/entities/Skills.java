@@ -4,6 +4,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 
 @Entity
@@ -15,7 +16,9 @@ public class Skills {
 	private String p_skills;
 	private String s_skills;
 	@ManyToOne
+	@JoinColumn(name="Candidate_Id")
 	private Candidate c_id;
+	
 	
 	public Candidate getC_id() {
 		return c_id;

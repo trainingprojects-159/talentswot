@@ -2,6 +2,7 @@ package com.mphasis.talentswot.entities;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
 
@@ -13,8 +14,10 @@ public class HR {
 	private String pass;
 	private String status;
 	@ManyToOne
+	@JoinColumn(name="Admin_Id")
 	private Admin a_id; 
 	@OneToOne
+	@JoinColumn(name="Hr_Int_Id")
 	private HRInterview hr_i_id;
 	public String getHr_id() {
 		return hr_id;

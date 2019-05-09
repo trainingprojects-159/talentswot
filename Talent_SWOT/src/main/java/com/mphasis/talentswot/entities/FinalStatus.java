@@ -4,6 +4,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
 
 @Entity
@@ -14,8 +15,10 @@ public class FinalStatus {
 	private int s_id;
 	private String Status;
 	@OneToOne
+	@JoinColumn(name="Hr_Int_Id")
 	private HRInterview hr_i_id;
 	@OneToOne
+	@JoinColumn(name="Admin_Id")
 	private Admin a_id;
 	
 	public int getS_id() {

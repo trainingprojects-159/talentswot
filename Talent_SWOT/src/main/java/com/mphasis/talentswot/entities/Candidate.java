@@ -6,6 +6,7 @@ import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 
@@ -20,13 +21,17 @@ public class Candidate {
 	private String experience;
 	private String location;
 	private int nperiod; 
+	private String status;
 	@OneToMany(mappedBy="c_id", fetch= FetchType.LAZY, cascade= CascadeType.ALL)
 	private List<Skills> skill_id;
 	@ManyToOne
+	@JoinColumn(name="Admin_Id")
 	private Admin a_id;
 	@ManyToOne
+	@JoinColumn(name="Tech_Int_Id")
 	private TechnicalInterview tech_i_id;
 	@ManyToOne
+	@JoinColumn(name="Hr_Int_Id")
 	private HRInterview hr_i_id;
 	
 	public TechnicalInterview getTech_i_id() {
@@ -94,6 +99,12 @@ public class Candidate {
 	}
 	public void setHr_i_id(HRInterview hr_i_id) {
 		this.hr_i_id = hr_i_id;
+	}
+	public String getStatus() {
+		return status;
+	}
+	public void setStatus(String status) {
+		this.status = status;
 	}
 	
 	
