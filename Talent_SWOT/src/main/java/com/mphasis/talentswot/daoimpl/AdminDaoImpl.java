@@ -1,5 +1,35 @@
 package com.mphasis.talentswot.daoimpl;
 
-public class AdminDaoImpl {
 
+import javax.transaction.Transactional;
+
+import org.hibernate.Query;
+import org.hibernate.Session;
+import org.hibernate.SessionFactory;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Repository;
+
+import com.mphasis.talentswot.daos.AdminDao;
+import com.mphasis.talentswot.entities.Admin;
+
+@Repository
+@Transactional
+public class AdminDaoImpl implements AdminDao {
+	
+	@Autowired
+	SessionFactory sessionFactory;
+	
+
+	public void setSessionFactory(SessionFactory sessionFactory) {
+		this.sessionFactory=sessionFactory;
+	}
+
+	public Admin login(String a_id, String pass) {
+		Session session=sessionFactory.openSession();
+		Query query=session.createQuery("from Admin where a_id=:a_id and pass=:pass");
+		query.setParameter("a_id", a_id);
+		query.setParameter("pass", pass);
+		Admin admin=(Admin)query.uniqueResult();
+		return admin;
+}
 }

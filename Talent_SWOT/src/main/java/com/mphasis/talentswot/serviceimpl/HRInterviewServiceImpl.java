@@ -31,8 +31,10 @@ public class HRInterviewServiceImpl implements HRInterviewService {
 	}
 
 	public List<HRInterview> getAllCandidates() {
-		return hRInterviewDao.getAllCandidates();
+		return hRInterviewDao.getAllHRCandidates();
 	}
+
+	
 
 	
 

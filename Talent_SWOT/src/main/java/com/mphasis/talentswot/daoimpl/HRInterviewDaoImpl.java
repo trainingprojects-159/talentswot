@@ -37,7 +37,7 @@ public class HRInterviewDaoImpl implements HRInterviewDao {
 		return hr;
 	}
 	
-	public List<HRInterview> getAllCandidates() {
+	public List<HRInterview> getAllHRCandidates() {
 		Session session=sessionFactory.openSession(); 
 		Transaction tr=session.beginTransaction();
 		
@@ -45,5 +45,9 @@ public class HRInterviewDaoImpl implements HRInterviewDao {
 		   tr.commit();
 		   return hrc;
 	}
+
+	
+
+	
 
 }
