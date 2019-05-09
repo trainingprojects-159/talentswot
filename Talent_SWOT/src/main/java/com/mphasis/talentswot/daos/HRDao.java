@@ -1,5 +1,7 @@
 package com.mphasis.talentswot.daos;
 
+import com.mphasis.talentswot.entities.HR;
+
 public interface HRDao {
-	public boolean login(String email, String password);
+	public HR login(String email, String password);
 }
