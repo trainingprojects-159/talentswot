@@ -22,12 +22,12 @@ public class TechnicalDaoImpl implements TechnicalDao {
 		this.sessionFactory = sessionFactory;
 	}
 	
-	public Technical login(String email, String password) {
+	public Technical login(String tech_id, String pass) {
 		
 		Session session = sessionFactory.openSession();
-		Query query=session.createQuery("from Technical where email=:email and pass=:pass");
-		query.setParameter("email", email);
-		query.setParameter("pass", password);
+		Query query=session.createQuery("from Technical where tech_id=:tech_id and pass=:pass");
+		query.setParameter("tech_id", tech_id);
+		query.setParameter("pass", pass);
 		Technical tech = (Technical) query.uniqueResult();
 		return tech;
 		

@@ -26,7 +26,7 @@ public class CandidateDaoImpl implements CandidateDao {
 		this.sessionFactory = sessionFactory;
 	}
 
-	public void insertCandidate(Candidate candidate) {
+	public void addCandidate(Candidate candidate) {
 		Session session=sessionFactory.openSession();
 		Transaction tr=session.beginTransaction();
 		System.out.println(candidate.getC_id()+"candidate value in dao");
@@ -35,7 +35,7 @@ public class CandidateDaoImpl implements CandidateDao {
 
 	}
 
-	public void deleteCandidate(String c_id) {
+		public void deleteCandidate(String c_id) {
 		Session session=sessionFactory.openSession();
 		Transaction tr=session.beginTransaction();
 		Candidate c=(Candidate)session.get(Candidate.class,c_id);
@@ -53,7 +53,7 @@ public class CandidateDaoImpl implements CandidateDao {
 
 	}
 
-	public Candidate getById(String c_id) {
+	public Candidate getCandidateById(String c_id) {
 		Session session=sessionFactory.openSession();
 		Transaction tr=session.beginTransaction();
 		Candidate c=(Candidate)session.get(Candidate.class,c_id);
@@ -63,7 +63,7 @@ public class CandidateDaoImpl implements CandidateDao {
 		
 	}
 
-	public List<Candidate> getCandidates() {
+	public List<Candidate> getAllCandidate() {
 		Session session=sessionFactory.openSession();
 		Transaction tr=session.beginTransaction();
 		List<Candidate> candidates=session.createCriteria(Candidate.class).list();
@@ -73,15 +73,6 @@ public class CandidateDaoImpl implements CandidateDao {
 	}
 
 
-
-	public List<Candidate> getAllCandidates() {
-		Session session=sessionFactory.openSession();
-		Transaction tr=session.beginTransaction();
-		List<Candidate> candidates=session.createCriteria(Candidate.class).list();
-		tr.commit();
-		return candidates;
-	}
-
 	public List<Candidate> getCandidateByStatus(String status) {
 		Session session=sessionFactory.openSession();
 		Transaction tr=session.beginTransaction();
@@ -90,5 +81,8 @@ public class CandidateDaoImpl implements CandidateDao {
 		List<Candidate> candidates=cri.list();
 		return candidates;
 	}
+
+
+
 
 }

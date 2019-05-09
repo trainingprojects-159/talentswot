@@ -15,44 +15,33 @@ public class CandidateServiceImpl implements CandidateService {
 	
 	@Autowired
 	CandidateDao candidateDao;
-	
-	
 
-	public void setCandidateDao(CandidateDao candidateDao) {
-		this.candidateDao = candidateDao;
-	}
-
-	public void insertCandidate(Candidate candidate) {
-		// TODO Auto-generated method stub
-		candidateDao.insertCandidate(candidate);
-		
+	public void addCandidate(Candidate c) {
+		candidateDao.addCandidate(c);
 	}
 
 	public void deleteCandidate(String c_id) {
-		// TODO Auto-generated method stub
 		candidateDao.deleteCandidate(c_id);
-		
 	}
 
 	public void updateCandidate(Candidate candidate) {
-		// TODO Auto-generated method stub
 		candidateDao.updateCandidate(candidate);
 	}
 
-	public Candidate getById(String c_id) {
-		// TODO Auto-generated method stub
-		return  candidateDao.getById(c_id);
+	public Candidate getCandidateById(String c_id) {
+		return candidateDao.getCandidateById(c_id) ;
 	}
 
-	public List<Candidate> getAllCandidates() {
-		// TODO Auto-generated method stub
-		return candidateDao.getAllCandidates();
+	public List<Candidate> getAllCandidate() {
+		return candidateDao.getAllCandidate();
 	}
 
 	public List<Candidate> getCandidateByStatus(String status) {
-		// TODO Auto-generated method stub
 		return candidateDao.getCandidateByStatus(status);
 	}
+	
+	
+
 	
 
 	

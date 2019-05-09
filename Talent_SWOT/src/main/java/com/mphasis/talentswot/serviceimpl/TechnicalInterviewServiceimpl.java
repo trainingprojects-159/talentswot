@@ -20,17 +20,14 @@ public class TechnicalInterviewServiceimpl implements TechnicalInterviewService 
 	}
 
 	public void scheduleTechnicalInterview(TechnicalInterview t) {
-		
 		technicalInterviewDao.scheduleTechnicalInterview(t);
 	}
 
 	public TechnicalInterview getTechnicalInterviewById(int tech_i_id) {
-		
 		return technicalInterviewDao.getTechnicalInterviewById(tech_i_id);
 	}
 
 	public List<TechnicalInterview> getAllTechnicalInterview() {
-		
 		return technicalInterviewDao.getAllTechnicalInterview();
 	}
 
