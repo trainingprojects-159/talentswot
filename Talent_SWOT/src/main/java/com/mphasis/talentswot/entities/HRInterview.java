@@ -19,26 +19,23 @@ public class HRInterview {
 	@Id
 	@GeneratedValue(strategy=GenerationType.SEQUENCE)
 	private int hr_i_id; 
-	private String date;
+	private String hrinterviewdate;
 	private int rating;
 	private String hr_status;
+	@OneToOne
+	private TechnicalInterview technicalInterview;
+	@OneToOne
+	private HR hr;
+	@OneToMany(mappedBy="hrInterview",fetch= FetchType.LAZY, cascade= CascadeType.ALL)
+	private List<Candidate> candidate;
+	
 	public String getHr_status() {
 		return hr_status;
 	}
 	public void setHr_status(String hr_status) {
 		this.hr_status = hr_status;
 	}
-	@OneToOne
-	@JoinColumn(name="Tech_Int_Id")
-	private TechnicalInterview tech_i_id;
-	@OneToOne
-	@JoinColumn(name="Hr_Id")
-	private HR hr_id;
-	@OneToOne
-	@JoinColumn(name="Status_Id")
-	private FinalStatus s_id;
-	@OneToMany(mappedBy="hr_i_id", fetch= FetchType.LAZY, cascade= CascadeType.ALL)
-	private List<Candidate> c_id;
+	
 	
 	public int getHr_i_id() {
 		return hr_i_id;
@@ -46,11 +43,12 @@ public class HRInterview {
 	public void setHr_i_id(int hr_i_id) {
 		this.hr_i_id = hr_i_id;
 	}
-	public String getDate() {
-		return date;
+	
+	public String getHrinterviewdate() {
+		return hrinterviewdate;
 	}
-	public void setDate(String date) {
-		this.date = date;
+	public void setHrinterviewdate(String hrinterviewdate) {
+		this.hrinterviewdate = hrinterviewdate;
 	}
 	public int getRating() {
 		return rating;
@@ -58,30 +56,27 @@ public class HRInterview {
 	public void setRating(int rating) {
 		this.rating = rating;
 	}
-	public TechnicalInterview getTech_i_id() {
-		return tech_i_id;
+	public TechnicalInterview getTechnicalInterview() {
+		return technicalInterview;
 	}
-	public void setTech_i_id(TechnicalInterview tech_i_id) {
-		this.tech_i_id = tech_i_id;
+	public void setTechnicalInterview(TechnicalInterview technicalInterview) {
+		this.technicalInterview = technicalInterview;
 	}
-	public HR getHr_id() {
-		return hr_id;
+	public HR getHr() {
+		return hr;
 	}
-	public void setHr_id(HR hr_id) {
-		this.hr_id = hr_id;
+	public void setHr(HR hr) {
+		this.hr = hr;
 	}
-	public FinalStatus getS_id() {
-		return s_id;
+	public List<Candidate> getCandidate() {
+		return candidate;
 	}
-	public void setS_id(FinalStatus s_id) {
-		this.s_id = s_id;
+	public void setCandidate(List<Candidate> candidate) {
+		this.candidate = candidate;
 	}
-	public List<Candidate> getC_id() {
-		return c_id;
-	}
-	public void setC_id(List<Candidate> c_id) {
-		this.c_id = c_id;
-	}
+	
+	
+	
 	
 	
 		

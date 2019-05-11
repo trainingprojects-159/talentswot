@@ -18,7 +18,9 @@
 		}
 
 		public Admin login(String a_id, String pass) {
+			
 			return adminDao.login(a_id, pass);
+			
 		}
 		
 	}

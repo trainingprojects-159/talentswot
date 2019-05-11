@@ -31,4 +31,14 @@ public class TechnicalInterviewServiceimpl implements TechnicalInterviewService 
 		return technicalInterviewDao.getAllTechnicalInterview();
 	}
 
+	@Override
+	public void updateTechnicalinterview(TechnicalInterview technicalInterview) {
+		technicalInterviewDao.updateTechnicalinterview(technicalInterview);
+	}
+
+	@Override
+	public List<TechnicalInterview> getTechnicalInterviewByStatus(String tech_status) {
+		return technicalInterviewDao.getTechnicalInterviewByStatus(tech_status);
+	}
+
 }

@@ -1,6 +1,7 @@
 package com.mphasis.talentswot.daoimpl;
 
 
+import javax.persistence.TypedQuery;
 import javax.transaction.Transactional;
 
 import org.hibernate.Query;
@@ -13,7 +14,7 @@ import com.mphasis.talentswot.daos.AdminDao;
 import com.mphasis.talentswot.entities.Admin;
 
 @Repository
-@Transactional
+
 public class AdminDaoImpl implements AdminDao {
 	
 	@Autowired
@@ -26,10 +27,10 @@ public class AdminDaoImpl implements AdminDao {
 
 	public Admin login(String a_id, String pass) {
 		Session session=sessionFactory.openSession();
-		Query query=session.createQuery("from Admin where a_id=:a_id and pass=:pass");
+		TypedQuery<Admin> query=session.createQuery("from Admin where a_id=:a_id and pass=:pass");
 		query.setParameter("a_id", a_id);
 		query.setParameter("pass", pass);
-		Admin admin=(Admin)query.uniqueResult();
+		Admin admin=query.getSingleResult();
 		return admin;
 }
 }

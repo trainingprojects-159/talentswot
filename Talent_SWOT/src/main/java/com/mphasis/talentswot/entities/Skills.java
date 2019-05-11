@@ -1,10 +1,13 @@
 package com.mphasis.talentswot.entities;
 
+import java.util.List;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 
 @Entity
@@ -15,17 +18,8 @@ public class Skills {
 	private int skill_id;
 	private String p_skills;
 	private String s_skills;
-	@ManyToOne
-	@JoinColumn(name="Candidate_Id")
-	private Candidate c_id;
-	
-	
-	public Candidate getC_id() {
-		return c_id;
-	}
-	public void setC_id(Candidate c_id) {
-		this.c_id = c_id;
-	}
+	@ManyToMany
+	private List<Candidate> candidate;
 	public int getSkill_id() {
 		return skill_id;
 	}
@@ -44,6 +38,16 @@ public class Skills {
 	public void setS_skills(String s_skills) {
 		this.s_skills = s_skills;
 	}
+	public List<Candidate> getCandidate() {
+		return candidate;
+	}
+	public void setCandidate(List<Candidate> candidate) {
+		this.candidate = candidate;
+	}
+	
+	
+	
+
 	
 	
 }

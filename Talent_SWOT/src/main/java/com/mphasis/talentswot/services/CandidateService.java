@@ -10,5 +10,5 @@ public interface CandidateService {
 	public void updateCandidate(Candidate candidate);
 	public Candidate getCandidateById(String c_id);
 	public List<Candidate> getAllCandidate();
-	public List<Candidate> getCandidateByStatus(String status);
+	
 }

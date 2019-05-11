@@ -6,9 +6,8 @@ import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
-import javax.persistence.OneToOne;
+
 
 @Entity
 public class Admin {
@@ -16,22 +15,12 @@ public class Admin {
 	@Id
 	private String a_id;
 	private String pass;
-	@OneToMany(mappedBy="a_id", fetch= FetchType.LAZY, cascade= CascadeType.ALL)
-	private List<Candidate> c_id;
-	@OneToMany(mappedBy="a_id", fetch= FetchType.LAZY, cascade= CascadeType.ALL)
-	private List<Technical> tech_id;
-	@OneToMany(mappedBy="a_id", fetch= FetchType.LAZY, cascade= CascadeType.ALL)
-	private List<HR> hr_id;
-	@OneToOne
-	@JoinColumn(name="Status_Id")
-	private FinalStatus s_id;
 	
-	public FinalStatus getS_id() {
-		return s_id;
-	}
-	public void setS_id(FinalStatus s_id) {
-		this.s_id = s_id;
-	}
+	@OneToMany(mappedBy="admin",fetch= FetchType.LAZY, cascade= CascadeType.ALL)
+	private List<Technical> technical;
+	@OneToMany(mappedBy="admin",fetch= FetchType.LAZY, cascade= CascadeType.ALL)
+	private List<HR> hr;
+	
 	public String getA_id() {
 		return a_id;
 	}
@@ -44,24 +33,30 @@ public class Admin {
 	public void setPass(String pass) {
 		this.pass = pass;
 	}
-	public List<Candidate> getC_id() {
-		return c_id;
+	public List<Technical> getTechnical() {
+		return technical;
 	}
-	public void setC_id(List<Candidate> c_id) {
-		this.c_id = c_id;
+	public void setTechnical(List<Technical> technical) {
+		this.technical = technical;
 	}
-	public List<Technical> getTech_id() {
-		return tech_id;
+	public List<HR> getHr() {
+		return hr;
 	}
-	public void setTech_id(List<Technical> tech_id) {
-		this.tech_id = tech_id;
+	public void setHr(List<HR> hr) {
+		this.hr = hr;
 	}
-	public List<HR> getHr_id() {
-		return hr_id;
+	@Override
+	public String toString() {
+		return "Admin [a_id=" + a_id + ", pass=" + pass + ", technical=" + technical + ", hr=" + hr + ", getA_id()="
+				+ getA_id() + ", getPass()=" + getPass() + ", getTechnical()=" + getTechnical() + ", getHr()=" + getHr()
+				+ ", getClass()=" + getClass() + ", hashCode()=" + hashCode() + ", toString()=" + super.toString()
+				+ "]";
 	}
-	public void setHr_id(List<HR> hr_id) {
-		this.hr_id = hr_id;
-	}
+
+	
+	
+	
+	
 	
 	
 }

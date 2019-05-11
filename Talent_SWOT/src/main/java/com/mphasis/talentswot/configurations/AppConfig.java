@@ -26,7 +26,6 @@ import com.mphasis.talentswot.entities.Technical;
 import com.mphasis.talentswot.entities.TechnicalInterview;
 
 
-
 @Configuration
 @EnableWebMvc
 @EnableAspectJAutoProxy

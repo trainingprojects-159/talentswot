@@ -4,9 +4,11 @@ import java.util.List;
 
 import javax.transaction.Transactional;
 
+import org.hibernate.Criteria;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
+import org.hibernate.criterion.Restrictions;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
@@ -14,7 +16,6 @@ import com.mphasis.talentswot.daos.TechnicalInterviewDao;
 import com.mphasis.talentswot.entities.TechnicalInterview;
 
 @Repository
-@Transactional
 public class TechnicalInterviewDaoImpl implements TechnicalInterviewDao {
 
 	@Autowired
@@ -47,10 +48,32 @@ public class TechnicalInterviewDaoImpl implements TechnicalInterviewDao {
 		
 		Session session = sessionFactory.openSession();
 		Transaction transaction = session.beginTransaction();
-		List<TechnicalInterview> tech = session.createCriteria(TechnicalInterview.class).list();
+		List<TechnicalInterview> tech = session.createQuery("from TechnicalInterview",TechnicalInterview.class).list();
 		transaction.commit();
 		return tech;
 
 	}
+
+	@Override
+	public void updateTechnicalinterview(TechnicalInterview technicalInterview) {
+		Session session=sessionFactory.openSession();
+		Transaction tr=session.beginTransaction();	
+		session.update(technicalInterview);
+		tr.commit();
+		
+	}
+
+	@Override
+	public List<TechnicalInterview> getTechnicalInterviewByStatus(String tech_status) {
+		Session session = sessionFactory.openSession();
+		Transaction transaction = session.beginTransaction();
+		Criteria criteria = session.createCriteria(TechnicalInterview.class);
+		criteria.add(Restrictions.eq("tech_status", tech_status));
+		List<TechnicalInterview> technicalInterview = criteria.list();
+		transaction.commit();
+		return technicalInterview;
+	}
+
+	
 
 }

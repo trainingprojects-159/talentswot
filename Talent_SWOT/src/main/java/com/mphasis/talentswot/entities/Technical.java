@@ -9,16 +9,17 @@ import javax.persistence.OneToOne;
 @Entity
 public class Technical {
 
+	@Override
+	public String toString() {
+		return "Technical [tech_id=" + tech_id + ", pass=" + pass + ", status=" + status + ", admin=" + admin
+				+ "]";
+	}
 	@Id
 	private String tech_id;
 	private String pass;
 	private String status;
 	@ManyToOne
-	@JoinColumn(name="Admin_Id")
-	private Admin a_id; 
-	@OneToOne
-	@JoinColumn(name="Tech_Int_Id")
-	private TechnicalInterview tech_i_id;
+	private Admin admin; 
 	
 	public String getTech_id() {
 		return tech_id;
@@ -32,24 +33,16 @@ public class Technical {
 	public void setPass(String pass) {
 		this.pass = pass;
 	}
-	public Admin getA_id() {
-		return a_id;
-	}
-	public void setA_id(Admin a_id) {
-		this.a_id = a_id;
-	}
-	public TechnicalInterview getTech_i_id() {
-		return tech_i_id;
-	}
-	public void setTech_i_id(TechnicalInterview tech_i_id) {
-		this.tech_i_id = tech_i_id;
-	}
 	public String getStatus() {
 		return status;
 	}
 	public void setStatus(String status) {
 		this.status = status;
 	}
-	
-	
+	public Admin getAdmin() {
+		return admin;
+	}
+	public void setAdmin(Admin admin) {
+		this.admin = admin;
+	}
 }

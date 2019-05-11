@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import com.mphasis.talentswot.daos.FinalStatusDao;
+import com.mphasis.talentswot.entities.Candidate;
 import com.mphasis.talentswot.entities.FinalStatus;
 import com.mphasis.talentswot.entities.HRInterview;
 
@@ -28,7 +29,7 @@ public class FinalStatusDaoImpl implements FinalStatusDao{
 		public List<FinalStatus> getAll() {
 			Session session=sessionFactory.openSession();
 			Transaction tr=session.beginTransaction();
-			List<FinalStatus> fs=session.createCriteria(FinalStatus.class).list();
+			List<FinalStatus> fs=session.createQuery("from FinalStatus",FinalStatus.class).list();
 			tr.commit();
 			return fs;
 		}

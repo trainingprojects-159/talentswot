@@ -14,11 +14,9 @@ public class HR {
 	private String pass;
 	private String status;
 	@ManyToOne
-	@JoinColumn(name="Admin_Id")
-	private Admin a_id; 
-	@OneToOne
-	@JoinColumn(name="Hr_Int_Id")
-	private HRInterview hr_i_id;
+	private Admin admin; 
+	
+	
 	public String getHr_id() {
 		return hr_id;
 	}
@@ -31,25 +29,20 @@ public class HR {
 	public void setPass(String pass) {
 		this.pass = pass;
 	}
-	public Admin getA_id() {
-		return a_id;
-	}
-	public void setA_id(Admin a_id) {
-		this.a_id = a_id;
-	}
-	public HRInterview getHr_i_id() {
-		return hr_i_id;
-	}
-	public void setHr_i_id(HRInterview hr_i_id) {
-		this.hr_i_id = hr_i_id;
-	}
 	public String getStatus() {
 		return status;
 	}
 	public void setStatus(String status) {
 		this.status = status;
-	} 
+	}
+	public Admin getAdmin() {
+		return admin;
+	}
+	public void setAdmin(Admin admin) {
+		this.admin = admin;
+	}
 	
+
 	
 	
 }

@@ -36,9 +36,6 @@ public class CandidateServiceImpl implements CandidateService {
 		return candidateDao.getAllCandidate();
 	}
 
-	public List<Candidate> getCandidateByStatus(String status) {
-		return candidateDao.getCandidateByStatus(status);
-	}
 	
 	
 

@@ -18,37 +18,32 @@ public class TechnicalInterview {
 	@Id
 	@GeneratedValue(strategy=GenerationType.SEQUENCE)
 	private int tech_i_id;
-	private String date;
-	private String comment;
+	private String tinterviewdate;
+	private String comments;
 	private String tech_status;
 	private int rating;
 	@OneToOne
-	@JoinColumn(name="tech_Id")
 	private Technical tech_id;
-	@OneToMany(mappedBy="tech_i_id", fetch= FetchType.LAZY, cascade= CascadeType.ALL)
-	private List<Candidate> c_id;
-	@OneToOne
-	@JoinColumn(name="Hr_Int_Id")
-	private HRInterview hr_i_id;
-	
-	
+	@OneToMany(mappedBy="technicalInterview",fetch= FetchType.LAZY, cascade= CascadeType.ALL)
+	private List<Candidate> candidate;
 	public int getTech_i_id() {
 		return tech_i_id;
 	}
 	public void setTech_i_id(int tech_i_id) {
 		this.tech_i_id = tech_i_id;
 	}
-	public String getDate() {
-		return date;
+	
+	public String getTinterviewdate() {
+		return tinterviewdate;
 	}
-	public void setDate(String date) {
-		this.date = date;
+	public void setTinterviewdate(String tinterviewdate) {
+		this.tinterviewdate = tinterviewdate;
 	}
-	public String getComment() {
-		return comment;
+	public String getComments() {
+		return comments;
 	}
-	public void setComment(String comment) {
-		this.comment = comment;
+	public void setComments(String comment) {
+		this.comments = comment;
 	}
 	public String getTech_status() {
 		return tech_status;
@@ -68,18 +63,24 @@ public class TechnicalInterview {
 	public void setTech_id(Technical tech_id) {
 		this.tech_id = tech_id;
 	}
-	public List<Candidate> getC_id() {
-		return c_id;
+	public List<Candidate> getCandidate() {
+		return candidate;
 	}
-	public void setC_id(List<Candidate> c_id) {
-		this.c_id = c_id;
+	public void setCandidate(List<Candidate> candidate) {
+		this.candidate = candidate;
 	}
-	public HRInterview getHr_i_id() {
-		return hr_i_id;
+	@Override
+	public String toString() {
+		return "TechnicalInterview [tech_i_id=" + tech_i_id + ", date=" + tinterviewdate + ", comment=" + comments
+				+ ", tech_status=" + tech_status + ", rating=" + rating + ", tech_id=" + tech_id + ", candidate="
+				+ candidate + "]";
 	}
-	public void setHr_i_id(HRInterview hr_i_id) {
-		this.hr_i_id = hr_i_id;
-	}
+	
+	
+	
+	
+	
+	
 	
 	
 }

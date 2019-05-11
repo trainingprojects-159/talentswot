@@ -15,11 +15,9 @@ public class FinalStatus {
 	private int s_id;
 	private String Status;
 	@OneToOne
-	@JoinColumn(name="Hr_Int_Id")
-	private HRInterview hr_i_id;
+	private HRInterview hrInterview;
 	@OneToOne
-	@JoinColumn(name="Admin_Id")
-	private Admin a_id;
+	private Admin admin;
 	
 	public int getS_id() {
 		return s_id;
@@ -33,18 +31,20 @@ public class FinalStatus {
 	public void setStatus(String status) {
 		Status = status;
 	}
-	public HRInterview getHr_i_id() {
-		return hr_i_id;
+	public HRInterview getHrInterview() {
+		return hrInterview;
 	}
-	public void setHr_i_id(HRInterview hr_i_id) {
-		this.hr_i_id = hr_i_id;
+	public void setHrInterview(HRInterview hrInterview) {
+		this.hrInterview = hrInterview;
 	}
-	public Admin getA_id() {
-		return a_id;
+	public Admin getAdmin() {
+		return admin;
 	}
-	public void setA_id(Admin a_id) {
-		this.a_id = a_id;
+	public void setAdmin(Admin admin) {
+		this.admin = admin;
 	}
+	
+	
 	
 	
 }

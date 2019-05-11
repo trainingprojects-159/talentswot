@@ -41,7 +41,7 @@ public class HRInterviewDaoImpl implements HRInterviewDao {
 		Session session=sessionFactory.openSession(); 
 		Transaction tr=session.beginTransaction();
 		
-		   List<HRInterview> hrc=session.createCriteria(HRInterview.class).list();
+		   List<HRInterview> hrc=session.createQuery("from HRInterview",HRInterview.class).list();
 		   tr.commit();
 		   return hrc;
 	}
