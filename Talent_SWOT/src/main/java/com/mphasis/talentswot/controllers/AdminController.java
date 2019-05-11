@@ -12,11 +12,13 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.mphasis.talentswot.entities.Admin;
 import com.mphasis.talentswot.entities.Candidate;
+import com.mphasis.talentswot.entities.FinalStatus;
 import com.mphasis.talentswot.entities.HRInterview;
 import com.mphasis.talentswot.entities.TechnicalInterview;
 import com.mphasis.talentswot.exceptions.BuissnesException;
 import com.mphasis.talentswot.services.AdminService;
 import com.mphasis.talentswot.services.CandidateService;
+import com.mphasis.talentswot.services.FinalStatusService;
 import com.mphasis.talentswot.services.HRInterviewService;
 import com.mphasis.talentswot.services.TechnicalInterviewService;
 
@@ -35,7 +37,8 @@ public class AdminController {
 	@Autowired
 	HRInterviewService hrInterviewService;
 	
-	
+	@Autowired
+	FinalStatusService finalStatusService;
 	
 	public void setHrInterviewService(HRInterviewService hrInterviewService) {
 		this.hrInterviewService = hrInterviewService;
@@ -84,7 +87,7 @@ public class AdminController {
 		this.candidateService.updateCandidate(candidate);
 	}
 	
-	@RequestMapping(value="/update/{c_id}",method=RequestMethod.GET)
+	@RequestMapping(value="/candidate/{c_id}",method=RequestMethod.GET)
 	public Candidate getCandidateById(@PathVariable("c_id")String c_id) {
 	return this.candidateService.getCandidateById(c_id);
 	}
@@ -95,16 +98,30 @@ public class AdminController {
 	}
 	
 	
-	@RequestMapping(value="/technical", method=RequestMethod.POST,produces=MediaType.APPLICATION_JSON_VALUE)
+	@RequestMapping(value="/technical/add", method=RequestMethod.POST,produces=MediaType.APPLICATION_JSON_VALUE)
 	public void scheduleTechnicalInterview(@RequestBody TechnicalInterview t ) {
 		this.technicalInterviewService.scheduleTechnicalInterview(t);
 	}
 	
 	
-	@RequestMapping(value="/hr", method=RequestMethod.POST,produces=MediaType.APPLICATION_JSON_VALUE)
+	@RequestMapping(value="/hr/add", method=RequestMethod.POST,produces=MediaType.APPLICATION_JSON_VALUE)
 	public void scheduleHRInterview(@RequestBody HRInterview h ) {
 		this.hrInterviewService.scheduleHRInterview(h);
 	}
 	
+	@RequestMapping(value="/finalstatus/add", method=RequestMethod.POST,produces=MediaType.APPLICATION_JSON_VALUE)
+	public void addFinalStatus(@RequestBody FinalStatus fs ) {
+		this.finalStatusService.addFinalStatus(fs);
+	}
+	
+	@RequestMapping(value="/final",method=RequestMethod.GET)
+	public List<FinalStatus> getAllFinalStatus() {
+		return finalStatusService.getAllFinalStatus();
+	}
+	
+	@RequestMapping(value="/finalstatus/{Status}",method=RequestMethod.GET)
+	public FinalStatus getFinalStatusBystatus(@PathVariable("Status")String Status) {
+	return this.finalStatusService.getFinalStatusBystatus(Status);
+	}
 	
 }
