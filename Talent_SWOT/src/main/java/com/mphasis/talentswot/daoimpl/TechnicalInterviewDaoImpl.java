@@ -67,9 +67,7 @@ public class TechnicalInterviewDaoImpl implements TechnicalInterviewDao {
 	public List<TechnicalInterview> getTechnicalInterviewByStatus(String tech_status) {
 		Session session = sessionFactory.openSession();
 		Transaction transaction = session.beginTransaction();
-		Criteria criteria = session.createCriteria(TechnicalInterview.class);
-		criteria.add(Restrictions.eq("tech_status", tech_status));
-		List<TechnicalInterview> technicalInterview = criteria.list();
+		List<TechnicalInterview> technicalInterview = session.createNativeQuery("select * from TechnicalInterview where tech_Status=:tech_status").list();
 		transaction.commit();
 		return technicalInterview;
 	}

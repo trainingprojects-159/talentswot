@@ -8,8 +8,8 @@ import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.EnableAspectJAutoProxy;
 import org.springframework.jdbc.datasource.DriverManagerDataSource;
-import org.springframework.orm.hibernate4.HibernateTransactionManager;
-import org.springframework.orm.hibernate4.LocalSessionFactoryBean;
+import org.springframework.orm.hibernate5.HibernateTransactionManager;
+import org.springframework.orm.hibernate5.LocalSessionFactoryBean;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 import org.springframework.web.servlet.config.annotation.CorsRegistry;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
@@ -28,6 +28,7 @@ import com.mphasis.talentswot.entities.TechnicalInterview;
 
 @Configuration
 @EnableWebMvc
+@EnableTransactionManagement
 @EnableAspectJAutoProxy
 @ComponentScan(basePackages = "com.mphasis.talentswot.*")
 public class AppConfig {
@@ -67,13 +68,20 @@ public class AppConfig {
 		sessionFactory.setAnnotatedClasses(HRInterview.class);
 		sessionFactory.setAnnotatedClasses(Technical.class);
 		sessionFactory.setAnnotatedClasses(TechnicalInterview.class);
-	Properties properties = new Properties();
+	    Properties properties = new Properties();
 		properties.put("hibernate.dialect", "org.hibernate.dialect.OracleDialect");
 		properties.put("hibernate.hbm2ddl.auto", "create");
 		properties.put("hibernate.show_sql", "true");
 		properties.put("hibernate.format_sql", "true");
 		sessionFactory.setHibernateProperties(properties);
 		return sessionFactory;
+	}
+	
+	@Bean
+	public HibernateTransactionManager getHibernateTransactionManger(SessionFactory s) {
+		HibernateTransactionManager hibernateTransactionManager=new HibernateTransactionManager();
+		hibernateTransactionManager.setSessionFactory(s);
+		return hibernateTransactionManager;
 	}
 
 }
