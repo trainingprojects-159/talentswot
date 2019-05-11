@@ -18,6 +18,7 @@ import com.mphasis.talentswot.services.TechnicalService;
 
 
 @RestController
+@RequestMapping("/technical")
 public class TechnicalController {
 
 	@Autowired

@@ -29,17 +29,8 @@ import com.mphasis.talentswot.entities.TechnicalInterview;
 @Configuration
 @EnableWebMvc
 @EnableAspectJAutoProxy
-@EnableTransactionManagement
 @ComponentScan(basePackages = "com.mphasis.talentswot.*")
 public class AppConfig {
-
-	/*@Bean
-	public InternalResourceViewResolver getViewResolver() {
-		InternalResourceViewResolver viewResolver = new InternalResourceViewResolver();
-		viewResolver.setPrefix("/WEB-INF/jsp/");
-		viewResolver.setSuffix(".jsp");
-		return viewResolver;
-	}*/
 	
 	@Bean
 	public WebMvcConfigurer corsConfiguration() {
@@ -78,17 +69,11 @@ public class AppConfig {
 		sessionFactory.setAnnotatedClasses(TechnicalInterview.class);
 	Properties properties = new Properties();
 		properties.put("hibernate.dialect", "org.hibernate.dialect.OracleDialect");
-		properties.put("hibernate.hbm2ddl.auto", "update");
+		properties.put("hibernate.hbm2ddl.auto", "create");
 		properties.put("hibernate.show_sql", "true");
 		properties.put("hibernate.format_sql", "true");
 		sessionFactory.setHibernateProperties(properties);
 		return sessionFactory;
 	}
-	
-	@Bean
-	public HibernateTransactionManager getHibernateTransactionManger(SessionFactory s) {
-		HibernateTransactionManager hibernateTransactionManager=new HibernateTransactionManager();
-		hibernateTransactionManager.setSessionFactory(s);
-		return hibernateTransactionManager;
-	}
+
 }
