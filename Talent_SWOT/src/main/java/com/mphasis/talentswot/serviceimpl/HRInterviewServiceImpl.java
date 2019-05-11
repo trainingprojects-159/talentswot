@@ -30,8 +30,13 @@ public class HRInterviewServiceImpl implements HRInterviewService {
 		return hRInterviewDao.getHRInterviewById(hr_i_id);
 	}
 
-	public List<HRInterview> getAllCandidates() {
-		return hRInterviewDao.getAllHRCandidates();
+	public List<HRInterview> getAllHRInterview() {
+		return hRInterviewDao.getAllHRInterview();
+	}
+
+	@Override
+	public void updateHRinterview(HRInterview hrInterview) {
+		hRInterviewDao.updateHRinterview(hrInterview);
 	}
 
 	

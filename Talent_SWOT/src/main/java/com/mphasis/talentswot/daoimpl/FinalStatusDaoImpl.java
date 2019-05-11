@@ -24,14 +24,35 @@ public class FinalStatusDaoImpl implements FinalStatusDao{
 		{
 			this.sessionFactory=sessionFactory;
 		}
-		
 
-		public List<FinalStatus> getAll() {
+		@Override
+		public void addFinalStatus(FinalStatus fs) {
 			Session session=sessionFactory.openSession();
 			Transaction tr=session.beginTransaction();
-			List<FinalStatus> fs=session.createQuery("from FinalStatus",FinalStatus.class).list();
+			session.save(fs);
+			tr.commit();
+			
+		}
+
+		@Override
+		public FinalStatus getFinalStatusBystatus(String Status) {
+			Session session=sessionFactory.openSession();
+			Transaction tr=session.beginTransaction();
+			FinalStatus c=(FinalStatus)session.get(FinalStatus.class,Status);
+			tr.commit();
+			return c;
+		}
+
+		@Override
+		public List<FinalStatus> getAllFinalStatus() {
+			Session session=sessionFactory.openSession();
+			Transaction tr=session.beginTransaction();
+			List<FinalStatus> fs = session.createQuery("from FinalStatus",FinalStatus.class).list();
 			tr.commit();
 			return fs;
 		}
+		
+
+		
 
 }

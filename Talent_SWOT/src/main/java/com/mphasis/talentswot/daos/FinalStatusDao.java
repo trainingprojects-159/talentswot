@@ -6,8 +6,9 @@ import com.mphasis.talentswot.entities.FinalStatus;
 
 public interface FinalStatusDao {
 	
-
-		public List<FinalStatus> getAll();
-
+	public void addFinalStatus(FinalStatus fs);
+	public FinalStatus getFinalStatusBystatus(String Status);
+	public List<FinalStatus> getAllFinalStatus();
+	
 	}
 

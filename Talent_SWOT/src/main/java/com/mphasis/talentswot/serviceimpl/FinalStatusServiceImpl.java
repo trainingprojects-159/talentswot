@@ -17,11 +17,27 @@ public class FinalStatusServiceImpl implements FinalStatusDao{
 		this.finalStatusDao = finalStatusDao;
 	}
 
+	@Override
+	public void addFinalStatus(FinalStatus fs) {
+		finalStatusDao.addFinalStatus(fs);
+		
+	}
+
+	@Override
+	public FinalStatus getFinalStatusBystatus(String Status) {
+		
+		return finalStatusDao.getFinalStatusBystatus(Status);
+	}
+
+	@Override
+	public List<FinalStatus> getAllFinalStatus() {
+		
+		return finalStatusDao.getAllFinalStatus();
+	}
 
 
-	public List<FinalStatus> getAll() {
-			return finalStatusDao.getAll();
-		}
+
+	
 
 	}
 
