@@ -12,6 +12,7 @@ import org.springframework.stereotype.Repository;
 
 import com.mphasis.talentswot.daos.AdminDao;
 import com.mphasis.talentswot.entities.Admin;
+import com.mphasis.talentswot.exceptions.BuissnessException;
 
 @Repository
 
@@ -25,7 +26,7 @@ public class AdminDaoImpl implements AdminDao {
 		this.sessionFactory=sessionFactory;
 	}
 
-	public Admin login(String a_id, String pass) {
+	public Admin login(String a_id, String pass) throws BuissnessException {
 		Session session=sessionFactory.openSession();
 		TypedQuery<Admin> query=session.createQuery("from Admin where a_id=:a_id and pass=:pass");
 		query.setParameter("a_id", a_id);

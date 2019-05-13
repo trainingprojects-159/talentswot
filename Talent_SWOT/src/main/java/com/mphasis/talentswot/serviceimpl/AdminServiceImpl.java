@@ -6,7 +6,8 @@
 
 	import com.mphasis.talentswot.daos.AdminDao;
 	import com.mphasis.talentswot.entities.Admin;
-	import com.mphasis.talentswot.services.AdminService;
+import com.mphasis.talentswot.exceptions.BuissnessException;
+import com.mphasis.talentswot.services.AdminService;
 
 	@Service
 	public class AdminServiceImpl  implements AdminService{
@@ -17,7 +18,7 @@
 			this.adminDao = adminDao;
 		}
 
-		public Admin login(String a_id, String pass) {
+		public Admin login(String a_id, String pass) throws BuissnessException{
 			
 			return adminDao.login(a_id, pass);
 			

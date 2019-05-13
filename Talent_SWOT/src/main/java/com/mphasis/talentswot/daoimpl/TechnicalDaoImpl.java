@@ -11,6 +11,7 @@ import org.springframework.stereotype.Repository;
 
 import com.mphasis.talentswot.daos.TechnicalDao;
 import com.mphasis.talentswot.entities.Technical;
+import com.mphasis.talentswot.exceptions.BuissnessException;
 
 @Repository
 
@@ -23,7 +24,7 @@ public class TechnicalDaoImpl implements TechnicalDao {
 		this.sessionFactory = sessionFactory;
 	}
 	
-	public Technical login(String tech_id, String pass) {
+	public Technical login(String tech_id, String pass) throws BuissnessException {
 		
 		Session session = sessionFactory.openSession();
 		TypedQuery<Technical> query=session.createQuery("from Technical where tech_id=:tech_id and pass=:pass");

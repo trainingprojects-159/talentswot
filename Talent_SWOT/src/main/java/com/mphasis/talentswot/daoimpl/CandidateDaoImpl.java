@@ -9,6 +9,7 @@ import org.springframework.stereotype.Repository;
 
 import com.mphasis.talentswot.daos.CandidateDao;
 import com.mphasis.talentswot.entities.Candidate;
+import com.mphasis.talentswot.exceptions.BuissnessException;
 @Repository
 public class CandidateDaoImpl implements CandidateDao {
 	
@@ -21,7 +22,7 @@ public class CandidateDaoImpl implements CandidateDao {
 		this.sessionFactory = sessionFactory;
 	}
 
-	public void addCandidate(Candidate candidate) {
+	public void addCandidate(Candidate candidate) throws BuissnessException {
 		Session session=sessionFactory.openSession();
 		Transaction tr=session.beginTransaction();
 		session.save(candidate);
@@ -29,7 +30,7 @@ public class CandidateDaoImpl implements CandidateDao {
 
 	}
 
-		public void deleteCandidate(String c_id) {
+		public void deleteCandidate(String c_id) throws BuissnessException {
 		Session session=sessionFactory.openSession();
 		Transaction tr=session.beginTransaction();
 		Candidate c=(Candidate)session.get(Candidate.class,c_id);
@@ -38,7 +39,7 @@ public class CandidateDaoImpl implements CandidateDao {
 
 	}
 
-	public void updateCandidate(Candidate candidate) {
+	public void updateCandidate(Candidate candidate) throws BuissnessException {
 		Session session=sessionFactory.openSession();
 		Transaction tr=session.beginTransaction();	
 		session.update(candidate);
@@ -47,7 +48,7 @@ public class CandidateDaoImpl implements CandidateDao {
 
 	}
 
-	public Candidate getCandidateById(String c_id) {
+	public Candidate getCandidateById(String c_id) throws BuissnessException {
 		Session session=sessionFactory.openSession();
 		Transaction tr=session.beginTransaction();
 		Candidate c=(Candidate)session.get(Candidate.class,c_id);
@@ -57,7 +58,7 @@ public class CandidateDaoImpl implements CandidateDao {
 		
 	}
 
-	public List<Candidate> getAllCandidate() {
+	public List<Candidate> getAllCandidate() throws BuissnessException {
 		Session session=sessionFactory.openSession();
 		Transaction tr=session.beginTransaction();
 		List<Candidate> candidates = session.createQuery("from Candiate",Candidate.class).list();

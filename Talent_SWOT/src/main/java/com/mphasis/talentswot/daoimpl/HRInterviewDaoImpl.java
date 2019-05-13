@@ -10,6 +10,7 @@ import org.springframework.stereotype.Repository;
 
 import com.mphasis.talentswot.daos.HRInterviewDao;
 import com.mphasis.talentswot.entities.HRInterview;
+import com.mphasis.talentswot.exceptions.BuissnessException;
 
 @Repository
 public class HRInterviewDaoImpl implements HRInterviewDao {
@@ -22,14 +23,14 @@ public class HRInterviewDaoImpl implements HRInterviewDao {
 			this.sessionFactory=sessionFactory;
 		}
 
-	public void scheduleHRInterview(HRInterview h) {
+	public void scheduleHRInterview(HRInterview h) throws BuissnessException {
 		Session session=sessionFactory.openSession();
 		   Transaction tr=session.beginTransaction();		
 		   session.save(h);
 		   tr.commit();
 	}
 
-	public HRInterview getHRInterviewById(int hr_i_id) {
+	public HRInterview getHRInterviewById(int hr_i_id) throws BuissnessException {
 		Session session=sessionFactory.openSession();
 		   Transaction tr=session.beginTransaction();
 		   HRInterview hr=(HRInterview)session.get(HRInterview.class,hr_i_id);
@@ -37,7 +38,7 @@ public class HRInterviewDaoImpl implements HRInterviewDao {
 		return hr;
 	}
 	
-	public List<HRInterview> getAllHRInterview() {
+	public List<HRInterview> getAllHRInterview() throws BuissnessException {
 		Session session=sessionFactory.openSession(); 
 		Transaction tr=session.beginTransaction();
 		
@@ -47,7 +48,7 @@ public class HRInterviewDaoImpl implements HRInterviewDao {
 	}
 
 	@Override
-	public void updateHRinterview(HRInterview hrInterview) {
+	public void updateHRinterview(HRInterview hrInterview) throws BuissnessException {
 		Session session=sessionFactory.openSession();
 		Transaction tr=session.beginTransaction();	
 		session.update(hrInterview);
