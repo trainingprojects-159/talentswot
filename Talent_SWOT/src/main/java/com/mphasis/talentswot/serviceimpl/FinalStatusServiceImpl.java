@@ -24,7 +24,7 @@ public class FinalStatusServiceImpl implements FinalStatusDao{
 	}
 
 	@Override
-	public FinalStatus getFinalStatusBystatus(String Status) {
+	public List<FinalStatus> getFinalStatusBystatus(String Status) {
 		
 		return finalStatusDao.getFinalStatusBystatus(Status);
 	}

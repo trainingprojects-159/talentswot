@@ -55,14 +55,14 @@ public class TechnicalController {
 	}
 	
 	
-	@RequestMapping(value="/technical", method=RequestMethod.PUT,produces=MediaType.APPLICATION_JSON_VALUE)
+	@RequestMapping(value="/technicalInterview", method=RequestMethod.PUT,produces=MediaType.APPLICATION_JSON_VALUE)
 	public void updateTechnicalinterview(@RequestBody TechnicalInterview technicalInterview ) {
 		this.technicalInterviewService.updateTechnicalinterview(technicalInterview);
 	}
 	
 	@RequestMapping(value="/technical/{tech_status}", method=RequestMethod.GET,produces=MediaType.APPLICATION_JSON_VALUE)
-	public void getTechnicalInterviewByStatus(@PathVariable("tech_status")String tech_status) {
-		this.technicalInterviewService.getTechnicalInterviewByStatus(tech_status);
+	public List<TechnicalInterview> getTechnicalInterviewByStatus(@PathVariable("tech_status")String tech_status) {
+		return this.technicalInterviewService.getTechnicalInterviewByStatus(tech_status);
 	}
 	
 }

@@ -120,7 +120,7 @@ public class AdminController {
 	}
 	
 	@RequestMapping(value="/finalstatus/{Status}",method=RequestMethod.GET)
-	public FinalStatus getFinalStatusBystatus(@PathVariable("Status")String Status) {
+	public List<FinalStatus> getFinalStatusBystatus(@PathVariable("Status")String Status) {
 	return this.finalStatusService.getFinalStatusBystatus(Status);
 	}
 	
