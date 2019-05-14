@@ -7,9 +7,11 @@ import org.springframework.stereotype.Service;
 
 import com.mphasis.talentswot.daos.FinalStatusDao;
 import com.mphasis.talentswot.entities.FinalStatus;
+import com.mphasis.talentswot.services.FinalStatusService;
 
 @Service
-public class FinalStatusServiceImpl implements FinalStatusDao{
+public class FinalStatusServiceImpl implements FinalStatusService{
+	
 	@Autowired
 	FinalStatusDao finalStatusDao;
 	
@@ -34,11 +36,6 @@ public class FinalStatusServiceImpl implements FinalStatusDao{
 		
 		return finalStatusDao.getAllFinalStatus();
 	}
-
-
-
-	
-
 	}
 
 

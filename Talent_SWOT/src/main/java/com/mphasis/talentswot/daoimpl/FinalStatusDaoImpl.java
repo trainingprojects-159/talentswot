@@ -1,16 +1,14 @@
 package com.mphasis.talentswot.daoimpl;
 
 import java.util.List;
-
-import org.hibernate.Criteria;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
-import org.hibernate.criterion.Restrictions;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 import com.mphasis.talentswot.daos.FinalStatusDao;
 import com.mphasis.talentswot.entities.FinalStatus;
+
 
 
 @Repository
@@ -36,11 +34,10 @@ public class FinalStatusDaoImpl implements FinalStatusDao{
 
 		@Override
 		public List<FinalStatus> getFinalStatusBystatus(String Status) {
+			
 			Session session = sessionFactory.openSession();
 			Transaction transaction = session.beginTransaction();
-			Criteria criteria = session.createCriteria(FinalStatus.class);
-			criteria.add(Restrictions.eq("Status", Status));
-			List<FinalStatus> finalStatus = criteria.list();
+			List<FinalStatus> finalStatus = session.createQuery("from FinalStatus",FinalStatus.class).list();
 			transaction.commit();
 			return finalStatus;
 			

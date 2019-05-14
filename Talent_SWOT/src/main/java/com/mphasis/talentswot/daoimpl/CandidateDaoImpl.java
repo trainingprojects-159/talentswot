@@ -60,7 +60,7 @@ public class CandidateDaoImpl implements CandidateDao {
 	public List<Candidate> getAllCandidate() {
 		Session session=sessionFactory.openSession();
 		Transaction tr=session.beginTransaction();
-		List<Candidate> candidates = session.createQuery("from Candiate",Candidate.class).list();
+		List<Candidate> candidates = session.createQuery("from Candidate",Candidate.class).list();
 		tr.commit();
 		return candidates;
 		

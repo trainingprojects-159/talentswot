@@ -23,6 +23,9 @@ public class Candidate {
 	private String location;
 	private int nperiod; 
 	
+	@ManyToOne
+	private Admin admin;
+	
 	@ManyToMany(mappedBy="candidate",fetch= FetchType.LAZY, cascade= CascadeType.ALL)
 	private List<Skills> skill_id;
 	
@@ -114,6 +117,16 @@ public class Candidate {
 	public void setHrInterview(HRInterview hrInterview) {
 		this.hrInterview = hrInterview;
 	}
+
+	public Admin getAdmin() {
+		return admin;
+	}
+
+	public void setAdmin(Admin admin) {
+		this.admin = admin;
+	}
+
+
 	
 	
 	

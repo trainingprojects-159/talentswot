@@ -62,6 +62,11 @@ public class AdminController {
 		this.technicalInterviewService = technicalInterviewService;
 	}
 
+	
+	public void setFinalStatusService(FinalStatusService finalStatusService) {
+		this.finalStatusService = finalStatusService;
+	}
+
 
 
 	@RequestMapping(value="/login/{a_id}/{pass}", method=RequestMethod.GET,produces=MediaType.APPLICATION_JSON_VALUE)

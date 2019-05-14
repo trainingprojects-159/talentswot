@@ -18,9 +18,17 @@ public class Admin {
 	
 	@OneToMany(mappedBy="admin",fetch= FetchType.LAZY, cascade= CascadeType.ALL)
 	private List<Technical> technical;
+	
 	@OneToMany(mappedBy="admin",fetch= FetchType.LAZY, cascade= CascadeType.ALL)
 	private List<HR> hr;
 	
+	@OneToMany(mappedBy="admin",fetch= FetchType.LAZY, cascade= CascadeType.ALL)
+	private List<Candidate> candidates;
+	
+	
+	public void setCandidates(List<Candidate> candidates) {
+		this.candidates = candidates;
+	}
 	public String getA_id() {
 		return a_id;
 	}
