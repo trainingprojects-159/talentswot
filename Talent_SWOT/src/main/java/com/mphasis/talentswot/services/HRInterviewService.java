@@ -4,10 +4,11 @@ import java.util.List;
 
 import com.mphasis.talentswot.entities.HRInterview;
 import com.mphasis.talentswot.entities.TechnicalInterview;
+import com.mphasis.talentswot.exceptions.BuissnessException;
 
 public interface HRInterviewService {
-	public void scheduleHRInterview(HRInterview h);
-	public void updateHRinterview(HRInterview hrInterview);
-	public HRInterview getHRInterviewById(int hr_i_id);
-	public List<HRInterview> getAllHRInterview();
+	public void scheduleHRInterview(HRInterview h) throws BuissnessException;
+	public void updateHRinterview(HRInterview hrInterview) throws BuissnessException;
+	public HRInterview getHRInterviewById(int hr_i_id) throws BuissnessException;
+	public List<HRInterview> getAllHRInterview() throws BuissnessException;
 }

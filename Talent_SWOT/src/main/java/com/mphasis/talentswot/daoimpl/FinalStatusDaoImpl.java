@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 import com.mphasis.talentswot.daos.FinalStatusDao;
 import com.mphasis.talentswot.entities.FinalStatus;
+import com.mphasis.talentswot.exceptions.BuissnessException;
 
 
 
@@ -24,7 +25,7 @@ public class FinalStatusDaoImpl implements FinalStatusDao{
 		}
 
 		@Override
-		public void addFinalStatus(FinalStatus fs) {
+		public void addFinalStatus(FinalStatus fs) throws BuissnessException {
 			Session session=sessionFactory.openSession();
 			Transaction tr=session.beginTransaction();
 			session.save(fs);

@@ -5,6 +5,7 @@ import org.springframework.stereotype.Service;
 
 import com.mphasis.talentswot.daos.HRDao;
 import com.mphasis.talentswot.entities.HR;
+import com.mphasis.talentswot.exceptions.BuissnessException;
 import com.mphasis.talentswot.services.HRService;
 
 @Service
@@ -17,7 +18,7 @@ public class HRServiceImpl implements HRService{
 		this.hRDao = hRDao;
 	}
 
-	public HR login(String hr_id, String pass) {
+	public HR login(String hr_id, String pass) throws BuissnessException {
 		return hRDao.login(hr_id, pass);
 	}
 

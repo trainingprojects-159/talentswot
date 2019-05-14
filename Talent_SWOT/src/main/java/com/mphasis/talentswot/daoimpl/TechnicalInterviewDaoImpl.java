@@ -14,6 +14,7 @@ import org.springframework.stereotype.Repository;
 
 import com.mphasis.talentswot.daos.TechnicalInterviewDao;
 import com.mphasis.talentswot.entities.TechnicalInterview;
+import com.mphasis.talentswot.exceptions.BuissnessException;
 
 @Repository
 public class TechnicalInterviewDaoImpl implements TechnicalInterviewDao {
@@ -25,7 +26,7 @@ public class TechnicalInterviewDaoImpl implements TechnicalInterviewDao {
 		this.sessionFactory = sessionFactory;
 	}
 	
-	public void scheduleTechnicalInterview(TechnicalInterview t) {
+	public void scheduleTechnicalInterview(TechnicalInterview t) throws BuissnessException {
 		
 		Session session = sessionFactory.openSession();
 		Transaction transaction = session.beginTransaction();
@@ -34,7 +35,7 @@ public class TechnicalInterviewDaoImpl implements TechnicalInterviewDao {
 
 	}
 
-	public TechnicalInterview getTechnicalInterviewById(int tech_i_id) {
+	public TechnicalInterview getTechnicalInterviewById(int tech_i_id) throws BuissnessException {
 		
 		Session session = sessionFactory.openSession();
 		Transaction transaction = session.beginTransaction();
@@ -44,7 +45,7 @@ public class TechnicalInterviewDaoImpl implements TechnicalInterviewDao {
 
 	}
 
-	public List<TechnicalInterview> getAllTechnicalInterview() {
+	public List<TechnicalInterview> getAllTechnicalInterview() throws BuissnessException {
 		
 		Session session = sessionFactory.openSession();
 		Transaction transaction = session.beginTransaction();
@@ -55,7 +56,7 @@ public class TechnicalInterviewDaoImpl implements TechnicalInterviewDao {
 	}
 
 	@Override
-	public void updateTechnicalinterview(TechnicalInterview technicalInterview) {
+	public void updateTechnicalinterview(TechnicalInterview technicalInterview) throws BuissnessException {
 		Session session=sessionFactory.openSession();
 		Transaction tr=session.beginTransaction();	
 		session.update(technicalInterview);
@@ -64,7 +65,7 @@ public class TechnicalInterviewDaoImpl implements TechnicalInterviewDao {
 	}
 
 	@Override
-	public List<TechnicalInterview> getTechnicalInterviewByStatus(String tech_status) {
+	public List<TechnicalInterview> getTechnicalInterviewByStatus(String tech_status) throws BuissnessException {
 		Session session = sessionFactory.openSession();
 		Transaction transaction = session.beginTransaction();
 		List<TechnicalInterview> technicalInterview = session.createNativeQuery("select * from TechnicalInterview where tech_Status=:tech_status").list();

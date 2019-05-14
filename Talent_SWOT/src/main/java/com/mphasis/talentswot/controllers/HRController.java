@@ -14,6 +14,7 @@ import com.mphasis.talentswot.entities.Candidate;
 import com.mphasis.talentswot.entities.FinalStatus;
 import com.mphasis.talentswot.entities.HR;
 import com.mphasis.talentswot.entities.HRInterview;
+import com.mphasis.talentswot.exceptions.BuissnessException;
 import com.mphasis.talentswot.services.FinalStatusService;
 import com.mphasis.talentswot.services.HRInterviewService;
 import com.mphasis.talentswot.services.HRService;
@@ -50,28 +51,28 @@ public class HRController {
 	}
 	
 	@RequestMapping(value="/login/{hr_id}/{pass}", method=RequestMethod.GET,produces=MediaType.APPLICATION_JSON_VALUE)
-	public HR login(@PathVariable("hr_id")String hr_id,@PathVariable("pass")String pass) {
+	public HR login(@PathVariable("hr_id")String hr_id,@PathVariable("pass")String pass) throws BuissnessException {
 		HR hr = hrService.login(hr_id, pass);
 		return hr;
 	}
 	
 	@RequestMapping(value="hr/technical/{tech_status}", method=RequestMethod.GET,produces=MediaType.APPLICATION_JSON_VALUE)
-	public void getTechnicalInterviewByStatus(@PathVariable("tech_status")String tech_status) {
+	public void getTechnicalInterviewByStatus(@PathVariable("tech_status")String tech_status) throws BuissnessException {
 		this.technicalInterviewService.getTechnicalInterviewByStatus(tech_status);
 	}
 	
 	@RequestMapping(value="/hr", method=RequestMethod.PUT,produces=MediaType.APPLICATION_JSON_VALUE)
-	public void updateHRinterview(@RequestBody HRInterview hrInterview ) {
+	public void updateHRinterview(@RequestBody HRInterview hrInterview ) throws BuissnessException {
 		this.hrInterviewService.updateHRinterview(hrInterview);
 	}
 	
 	@RequestMapping(value="/hr/add", method=RequestMethod.POST,produces=MediaType.APPLICATION_JSON_VALUE)
-	public void addFinalStatus(@RequestBody FinalStatus finalStatus ) {
+	public void addFinalStatus(@RequestBody FinalStatus finalStatus ) throws BuissnessException {
 		this.finalStatusService.addFinalStatus(finalStatus);
 	}
 	
 	@RequestMapping(value="/finalstatus", method=RequestMethod.GET,produces=MediaType.APPLICATION_JSON_VALUE)
-	public List<FinalStatus> ListFinalStatus() {
+	public List<FinalStatus> ListFinalStatus() throws BuissnessException {
 		return this.finalStatusService.getAllFinalStatus();
 	}
 }

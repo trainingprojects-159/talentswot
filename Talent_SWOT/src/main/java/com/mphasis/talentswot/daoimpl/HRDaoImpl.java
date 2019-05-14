@@ -14,6 +14,7 @@ import org.springframework.stereotype.Repository;
 
 import com.mphasis.talentswot.daos.HRDao;
 import com.mphasis.talentswot.entities.HR;
+import com.mphasis.talentswot.exceptions.BuissnessException;
 
 @Repository
 
@@ -21,7 +22,7 @@ public class HRDaoImpl implements HRDao {
 	@Autowired
 	SessionFactory sessionFactory;
 
-	public void setSessionFactory(SessionFactory sessionFactory) {
+	public void setSessionFactory(SessionFactory sessionFactory) throws BuissnessException {
 		
 		this.sessionFactory = sessionFactory;
 	}

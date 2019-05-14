@@ -7,7 +7,10 @@ import org.springframework.stereotype.Service;
 
 import com.mphasis.talentswot.daos.FinalStatusDao;
 import com.mphasis.talentswot.entities.FinalStatus;
+
+import com.mphasis.talentswot.exceptions.BuissnessException;
 import com.mphasis.talentswot.services.FinalStatusService;
+
 
 @Service
 public class FinalStatusServiceImpl implements FinalStatusService{
@@ -20,19 +23,19 @@ public class FinalStatusServiceImpl implements FinalStatusService{
 	}
 
 	@Override
-	public void addFinalStatus(FinalStatus fs) {
+	public void addFinalStatus(FinalStatus fs) throws BuissnessException {
 		finalStatusDao.addFinalStatus(fs);
 		
 	}
 
 	@Override
-	public List<FinalStatus> getFinalStatusBystatus(String Status) {
+	public List<FinalStatus> getFinalStatusBystatus(String Status) throws BuissnessException {
 		
 		return finalStatusDao.getFinalStatusBystatus(Status);
 	}
 
 	@Override
-	public List<FinalStatus> getAllFinalStatus() {
+	public List<FinalStatus> getAllFinalStatus() throws BuissnessException {
 		
 		return finalStatusDao.getAllFinalStatus();
 	}
