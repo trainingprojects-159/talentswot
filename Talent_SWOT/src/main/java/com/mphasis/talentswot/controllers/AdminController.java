@@ -82,8 +82,8 @@ public class AdminController {
 		this.candidateService.deleteCandidate(c_id);
 	}
 	
-	@RequestMapping(value="/candidate/{c_id}",method=RequestMethod.PUT)
-	public void updateCandidate(@PathVariable("c_id")int c_id,@RequestBody Candidate candidate) {
+	@RequestMapping(value="/candidate",method=RequestMethod.PUT)
+	public void updateCandidate(@RequestBody Candidate candidate) {
 		this.candidateService.updateCandidate(candidate);
 	}
 	
@@ -114,7 +114,7 @@ public class AdminController {
 		this.finalStatusService.addFinalStatus(fs);
 	}
 	
-	@RequestMapping(value="/final",method=RequestMethod.GET)
+	@RequestMapping(value="/finalstatus",method=RequestMethod.GET)
 	public List<FinalStatus> getAllFinalStatus() {
 		return finalStatusService.getAllFinalStatus();
 	}
