@@ -47,7 +47,7 @@ public class HRInterviewDaoImpl implements HRInterviewDao {
 		   return hrc;
 	}
 
-	@Override
+
 	public void updateHRinterview(HRInterview hrInterview) throws BuissnessException {
 		Session session=sessionFactory.openSession();
 		Transaction tr=session.beginTransaction();	

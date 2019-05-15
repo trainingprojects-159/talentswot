@@ -32,12 +32,12 @@ public class TechnicalInterviewServiceimpl implements TechnicalInterviewService 
 		return technicalInterviewDao.getAllTechnicalInterview();
 	}
 
-	@Override
+
 	public void updateTechnicalinterview(TechnicalInterview technicalInterview) throws BuissnessException {
 		technicalInterviewDao.updateTechnicalinterview(technicalInterview);
 	}
 
-	@Override
+
 	public List<TechnicalInterview> getTechnicalInterviewByStatus(String tech_status) throws BuissnessException {
 		return technicalInterviewDao.getTechnicalInterviewByStatus(tech_status);
 	}

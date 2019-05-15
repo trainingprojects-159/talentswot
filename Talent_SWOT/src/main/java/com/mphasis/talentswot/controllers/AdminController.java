@@ -75,30 +75,30 @@ public class AdminController {
 		return admin;
 	}	
 	
-	@RequestMapping(value="/candidate/add",method=RequestMethod.POST)
+	@RequestMapping(value="/candidate/add",method=RequestMethod.POST,produces=MediaType.APPLICATION_JSON_VALUE)
 	public void addCandidate(@RequestBody Candidate c) throws BuissnessException {
 
 		this.candidateService.addCandidate(c);
 	}
 	
-	@RequestMapping(value="/candidate/{c_id}",method=RequestMethod.DELETE)
+	@RequestMapping(value="/candidate/{c_id}",method=RequestMethod.DELETE,produces=MediaType.APPLICATION_JSON_VALUE)
 	public void deleteCandidate(@PathVariable("c_id")String c_id) throws BuissnessException {
 
 		this.candidateService.deleteCandidate(c_id);
 	}
 
-	@RequestMapping(value="/candidate/{c_id}",method=RequestMethod.PUT)
+	@RequestMapping(value="/candidate/{c_id}",method=RequestMethod.PUT,produces=MediaType.APPLICATION_JSON_VALUE)
 	public void updateCandidate(@PathVariable("c_id")int c_id,@RequestBody Candidate candidate) throws BuissnessException {
 
 		this.candidateService.updateCandidate(candidate);
 	}
 	
-	@RequestMapping(value="/candidate/{c_id}",method=RequestMethod.GET)
+	@RequestMapping(value="/candidate/{c_id}",method=RequestMethod.GET,produces=MediaType.APPLICATION_JSON_VALUE)
 	public Candidate getCandidateById(@PathVariable("c_id")String c_id) throws BuissnessException {
 	return this.candidateService.getCandidateById(c_id);
 	}
 	
-	@RequestMapping(value="/candidate",method=RequestMethod.GET)
+	@RequestMapping(value="/candidate",method=RequestMethod.GET,produces=MediaType.APPLICATION_JSON_VALUE)
 	public List<Candidate> listCandidates() throws BuissnessException {
 		return candidateService.getAllCandidate();
 	}
@@ -115,18 +115,15 @@ public class AdminController {
 		this.hrInterviewService.scheduleHRInterview(h);
 	}
 	
-	@RequestMapping(value="/finalstatus/add", method=RequestMethod.POST,produces=MediaType.APPLICATION_JSON_VALUE)
-	public void addFinalStatus(@RequestBody FinalStatus fs ) throws BuissnessException {
-		this.finalStatusService.addFinalStatus(fs);
-	}
+	
 	
 
-	@RequestMapping(value="/final",method=RequestMethod.GET)
+	@RequestMapping(value="/final",method=RequestMethod.GET,produces=MediaType.APPLICATION_JSON_VALUE)
 	public List<FinalStatus> getAllFinalStatus() throws BuissnessException{
 		return finalStatusService.getAllFinalStatus();
 	}
 	
-	@RequestMapping(value="/finalstatus/{Status}",method=RequestMethod.GET)
+	@RequestMapping(value="/finalstatus/{Status}",method=RequestMethod.GET,produces=MediaType.APPLICATION_JSON_VALUE)
 	public List<FinalStatus> getFinalStatusBystatus(@PathVariable("Status")String Status) throws BuissnessException {
 	return this.finalStatusService.getFinalStatusBystatus(Status);
 	}

@@ -8,6 +8,8 @@ import javax.persistence.FetchType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 
 @Entity
 public class Admin {
@@ -17,12 +19,15 @@ public class Admin {
 	private String pass;
 	
 	@OneToMany(mappedBy="admin",fetch= FetchType.LAZY, cascade= CascadeType.ALL)
+	@JsonIgnore
 	private List<Technical> technical;
 	
 	@OneToMany(mappedBy="admin",fetch= FetchType.LAZY, cascade= CascadeType.ALL)
+	@JsonIgnore
 	private List<HR> hr;
 	
 	@OneToMany(mappedBy="admin",fetch= FetchType.LAZY, cascade= CascadeType.ALL)
+	@JsonIgnore
 	private List<Candidate> candidates;
 	
 	

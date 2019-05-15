@@ -22,19 +22,19 @@ public class FinalStatusServiceImpl implements FinalStatusService{
 		this.finalStatusDao = finalStatusDao;
 	}
 
-	@Override
+	
 	public void addFinalStatus(FinalStatus fs) throws BuissnessException {
 		finalStatusDao.addFinalStatus(fs);
 		
 	}
 
-	@Override
+
 	public List<FinalStatus> getFinalStatusBystatus(String Status) throws BuissnessException {
 		
 		return finalStatusDao.getFinalStatusBystatus(Status);
 	}
 
-	@Override
+
 	public List<FinalStatus> getAllFinalStatus() throws BuissnessException {
 		
 		return finalStatusDao.getAllFinalStatus();

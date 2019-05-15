@@ -24,7 +24,7 @@ public class FinalStatusDaoImpl implements FinalStatusDao{
 			this.sessionFactory=sessionFactory;
 		}
 
-		@Override
+	
 		public void addFinalStatus(FinalStatus fs) throws BuissnessException {
 			Session session=sessionFactory.openSession();
 			Transaction tr=session.beginTransaction();
@@ -33,7 +33,6 @@ public class FinalStatusDaoImpl implements FinalStatusDao{
 			
 		}
 
-		@Override
 		public List<FinalStatus> getFinalStatusBystatus(String Status) {
 			
 			Session session = sessionFactory.openSession();
@@ -44,7 +43,7 @@ public class FinalStatusDaoImpl implements FinalStatusDao{
 			
 		}
 
-		@Override
+	
 		public List<FinalStatus> getAllFinalStatus() {
 			Session session=sessionFactory.openSession();
 			Transaction tr=session.beginTransaction();

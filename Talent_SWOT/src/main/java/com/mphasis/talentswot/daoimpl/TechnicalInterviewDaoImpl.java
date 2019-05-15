@@ -55,7 +55,7 @@ public class TechnicalInterviewDaoImpl implements TechnicalInterviewDao {
 
 	}
 
-	@Override
+
 	public void updateTechnicalinterview(TechnicalInterview technicalInterview) throws BuissnessException {
 		Session session=sessionFactory.openSession();
 		Transaction tr=session.beginTransaction();	
@@ -64,7 +64,7 @@ public class TechnicalInterviewDaoImpl implements TechnicalInterviewDao {
 		
 	}
 
-	@Override
+
 	public List<TechnicalInterview> getTechnicalInterviewByStatus(String tech_status) throws BuissnessException {
 		Session session = sessionFactory.openSession();
 		Transaction transaction = session.beginTransaction();

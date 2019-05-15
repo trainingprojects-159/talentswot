@@ -12,6 +12,8 @@ import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 @Entity
 public class TechnicalInterview {
 
@@ -25,6 +27,7 @@ public class TechnicalInterview {
 	@OneToOne
 	private Technical tech_id;
 	@OneToMany(mappedBy="technicalInterview",fetch= FetchType.LAZY, cascade= CascadeType.ALL)
+	@JsonIgnore
 	private List<Candidate> candidate;
 	public int getTech_i_id() {
 		return tech_i_id;

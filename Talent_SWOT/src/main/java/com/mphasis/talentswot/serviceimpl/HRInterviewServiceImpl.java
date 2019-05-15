@@ -35,7 +35,7 @@ public class HRInterviewServiceImpl implements HRInterviewService {
 		return hRInterviewDao.getAllHRInterview();
 	}
 
-	@Override
+
 	public void updateHRinterview(HRInterview hrInterview) throws BuissnessException {
 		hRInterviewDao.updateHRinterview(hrInterview);
 	}

@@ -11,6 +11,8 @@ import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 @Entity
 public class Candidate {
 	
@@ -27,6 +29,7 @@ public class Candidate {
 	private Admin admin;
 	
 	@ManyToMany(mappedBy="candidate",fetch= FetchType.LAZY, cascade= CascadeType.ALL)
+	@JsonIgnore
 	private List<Skills> skill_id;
 	
 

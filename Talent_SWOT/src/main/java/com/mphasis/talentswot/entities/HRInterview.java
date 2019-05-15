@@ -12,6 +12,8 @@ import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 
 @Entity
 public class HRInterview {
@@ -27,6 +29,7 @@ public class HRInterview {
 	@OneToOne
 	private HR hr;
 	@OneToMany(mappedBy="hrInterview",fetch= FetchType.LAZY, cascade= CascadeType.ALL)
+	@JsonIgnore
 	private List<Candidate> candidate;
 	
 	public String getHr_status() {
