@@ -1,0 +1,83 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<title>Add Candidate</title>
+<style>
+input[type=text], select {
+  width: 30%;
+  padding: 7px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+button {
+  width: 20%;
+  background-color: #513c35;
+  color: white;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  
+}
+
+button:hover {
+  background-color: #84584a;
+}
+
+div {
+  	
+  border-radius: 5px;
+  background-color: #f2f2f2;
+  padding: 20px;
+}
+</style>
+
+</head>
+<body>
+
+<h3 align="center">Add the Candidate details </h3>
+
+<div>
+  <form #loginForm="ngForm" (ngSubmit)="savecandidate()" autocomplete="off">
+
+    <label for="c_id">Candidate Id</label>&nbsp;&nbsp;
+    <input type="text" class="form_control" id="c_id" required [(ngModel)]="candidate.c_id" name="c_id">
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <label for="fname">First Name</label>&nbsp;&nbsp;&nbsp;
+    <input type="text" class="form_control" id="fname" required [(ngModel)]="candidate.fname" name="fname"><br>
+     
+    <label for="lname">last Name</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <input type="text" class="form_control" id="lname" required [(ngModel)]="candidate.lname" name="lname">
+
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <label for="experience">Experience</label>&nbsp;&nbsp;
+    <input type="text" class="form_control" id="experience" required [(ngModel)]="candidate.experience" name="experience"><br>	
+    
+    <label for="lname">Location</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <input type="text" class="form_control" id="location" required [(ngModel)]="candidate.location" name="location">
+    
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <label for="designation">Designation</label>&nbsp;
+    <input type="text" class="form_control" id="designation" required [(ngModel)]="candidate.designation" name="designation"><br>
+
+    <label for="designation">Notice Period</label>
+    <input type="text" class="form_control" id="nperiod" required [(ngModel)]="candidate.nperiod" name="nperiod"><br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  
+    <button class=btn-btn-primary type="submit" >Save</button>
+  </form>
+</div>
+</body>
+</html>

@@ -1,0 +1,56 @@
+
+<html>
+  <head>
+  <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+  <title>Add Product</title>
+  <style>
+  input[type=text], select {
+    width: 25%;
+    padding: 7px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+  }
+  
+  button {
+    width: 10%;
+    background-color: #513c35;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    
+  }
+  
+  button:hover {
+    background-color: #84584a;
+  }
+  
+  div {
+      
+    border-radius: 5px;
+    background-color: #f2f2f2;
+    padding: 20px;
+  }
+  </style>
+  
+  </head>
+  <body>
+  
+  <h3 align="center">Delete Candidate</h3>
+  
+  <div align="center">
+    <form #loginForm="ngForm" (ngSubmit)="deleteCandidate()">
+  
+      <label for="designation">Candidate Id</label>
+      <input type="text" class="form_control" id="c_id" required [(ngModel)]="candidate.c_id" name="c_id"><br>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      <button type="submit" (click)="delete" >Delete</button>
+    </form>
+  </div>
+  </body>
+  </html>

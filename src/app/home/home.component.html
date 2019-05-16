@@ -1,0 +1,64 @@
+<br>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Admin</title>
+<style type="text/css">
+ul {
+  list-style-type: none;
+  margin: 10 px;
+  padding: 10 px;
+  overflow:hidden;
+  background-color: #513c35;
+}
+li {
+   float: left;
+} 
+div{
+display: none;
+position: absolute;
+background-color: #513c35;
+min-width: 160px;
+}
+li a {
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 20px;
+  text-decoration: none;
+}
+li a:HOVER {
+	background-color: #84584a;
+}
+
+li:HOVER div{
+display: block;
+}
+</style>
+</head>
+<body>
+<ul>
+	
+	<li><a>Candidate</a>
+	<div id="anyname">
+	  <a routerLink="getallcandidate" role="button" routerLinkActive="active">Get All Candidate</a>
+    <a routerLink="addcandidate"  role="button" routerLinkActive="active">Add Candidate</a>
+  </div>
+  </li>
+	<li><a>schedule Interview</a>
+	<div id="anyname">
+	  <a routerLink="scheduletechnicalinterview" role="button" routerLinkActive="active">Tech Interview</a>
+    <a routerLink="schedulehrinterview" role="button" routerLinkActive="active">HR Interview</a>
+  </div>
+  </li>
+	<li><a>Final Status</a>
+	<div id="anyname">
+	  <a routerLink="getallfinalstatus" role="button" routerLinkActive="active">All Final Status</a>
+    <a routerLink="getfinalstatusbystatus" role="button" routerLinkActive="active"> By Status</a>
+  </div>
+  </li> 
+</ul>
+<router-outlet></router-outlet> 
+</body>
+</html>

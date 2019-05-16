@@ -1,0 +1,55 @@
+<html>
+<head>
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css">
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+
+<title>Product</title>
+<style>
+#customers {
+  font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+#customers td, #customers th {
+  border: 1px solid #ddd;
+  padding: 8px;
+}
+
+#customers tr:nth-child(even){background-color: #f2f2f2;}
+
+#customers tr:hover {background-color: #ddd;}
+
+#customers th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: center;
+  background-color: #513c35;
+  color: white;
+}
+ #customers tr{
+	 text-align: center;
+}
+</style>
+
+</head>
+<body>
+<p align="center" style="font-family: cursive; color: #5e2909; font-size: large;">
+</p>
+<h2 align="center">List of Final Status</h2>
+<table id="customers">
+  <tr>
+    <th>Status Id</th>
+    <th>Status</th>
+   
+  </tr> 
+  		<tr *ngFor='let finalstatus of finalstatus'>
+		    <td>{{finalstatus.s_id}}</td>
+		    <td>{{finalstatus.status}}</td>
+		    
+        <a routerLink='/home/addfinalstatus'></a>
+       
+  		</tr>
+</table>
+</body>
+</html>

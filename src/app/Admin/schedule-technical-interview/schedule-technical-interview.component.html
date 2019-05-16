@@ -1,0 +1,73 @@
+
+<html>
+        <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+        <title>Take Interview</title>
+        <style>
+        input[type=text], select {
+          width: 30%;
+          padding: 7px;
+          margin: 8px 0;
+          display: inline-block;
+          border: 1px solid #ccc;
+          border-radius: 4px;
+          box-sizing: border-box;
+        }
+        
+        button {
+          width: 20%;
+          background-color: #513c35;
+          color: white;
+          padding: 14px 20px;
+          margin: 8px 0;
+          border: none;
+          border-radius: 4px;
+          cursor: pointer;
+          
+        }
+        
+        button:hover {
+          background-color: #84584a;
+        }
+        
+        div {
+              
+          border-radius: 5px;
+          background-color: #f2f2f2;
+          padding: 20px;
+        }
+        </style>
+        
+        </head>
+        <body>
+        
+        <h3 align="center">Technical Interview </h3>
+        
+        <div>
+          <form #loginForm="ngForm" (ngSubmit)="scheduleTechnicalInterview()" autocomplete="off">
+        
+            <label for="tech_i_id">Technical Interview Id</label>&nbsp;&nbsp;
+            <input type="text" class="form_control" id="tech_i_id"  name="tech_i_id" readonly>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <label for="tinterviewdate">Interview Date</label>&nbsp;&nbsp;&nbsp;
+            <input type="date" class="form_control" id="tinterviewdate" required [(ngModel)]="technicalInterview.tinterviewdate" name="tinterviewdate"><br>
+             
+            <label for="tech_id">Technical ID</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <input type="text" class="form_control" id="tech_id" required [(ngModel)]="technicalInterview.tech_id" name="tech_id">
+        
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <label for="tech_status">Technical Status</label>&nbsp;&nbsp;
+            <input type="text" class="form_control" id="tech_status" required [(ngModel)]="technicalInterview.tech_status" name="tech_status"><br>	
+            
+            <label for="ratings">Ratings</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <input type="number" class="form_control" id="ratings" required [(ngModel)]="technicalInterview.ratings" name="ratings">
+            
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <label for="comments">Comments</label>&nbsp;
+            <input type="text" class="form_control" id="comments" required [(ngModel)]="technicalInterview.comments" name="comments"><br>
+
+            <button class=btn-btn-primary type="submit" >Save</button>
+          </form>
+        </div>
+        </body>
+        </html>
